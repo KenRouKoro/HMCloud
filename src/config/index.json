@@ -1,0 +1,15 @@
+{
+  "api": {
+    "baseUrl": "https://hmcloudapi.korostudio.cn",
+    "timeout": 10000,
+    "version": ""
+  },
+  "app": {
+    "name": "HMCloud",
+    "version": "1.0.0"
+  },
+  "upload": {
+    "maxSize": 10485760,
+    "allowedTypes": ["image/jpeg", "image/png", "image/gif", "application/pdf"]
+  }
+} 

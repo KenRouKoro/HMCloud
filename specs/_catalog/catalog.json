@@ -1,0 +1,327 @@
+[
+  {
+    "uri": {
+      "specId": "backend.json",
+      "type": "specification",
+      "identifier": "backend.json"
+    },
+    "description": "昊明云设备控制系统 API",
+    "operations": [
+      {
+        "path": "/view/user/update-phone",
+        "method": "post",
+        "operationId": "updatePhone"
+      },
+      {
+        "path": "/view/user/update-passwd",
+        "method": "post",
+        "operationId": "updatePW"
+      },
+      {
+        "path": "/view/user/update-name",
+        "method": "post",
+        "operationId": "updateName"
+      },
+      {
+        "path": "/view/user/update-email",
+        "method": "post",
+        "operationId": "updateEmail"
+      },
+      {
+        "path": "/view/user/update-avatar",
+        "method": "post",
+        "operationId": "updateAvatar"
+      },
+      {
+        "path": "/view/user/phone",
+        "method": "post",
+        "operationId": "getUserInfoByPhone"
+      },
+      {
+        "path": "/view/user/organization-id",
+        "method": "post",
+        "operationId": "getUserInfoByOrganizationID"
+      },
+      {
+        "path": "/view/user/name",
+        "method": "post",
+        "operationId": "getUserInfo"
+      },
+      {
+        "path": "/view/user/id",
+        "method": "post",
+        "operationId": "getUserInfoByID"
+      },
+      {
+        "path": "/view/user/email",
+        "method": "post",
+        "operationId": "getUserInfoByEmail"
+      },
+      {
+        "path": "/view/su/update-phone",
+        "method": "post",
+        "operationId": "updatePhone_1"
+      },
+      {
+        "path": "/view/su/update-permission",
+        "method": "post",
+        "operationId": "updatePermission"
+      },
+      {
+        "path": "/view/su/update-passwd",
+        "method": "post",
+        "operationId": "updatePW_1"
+      },
+      {
+        "path": "/view/su/update-organization-id",
+        "method": "post",
+        "operationId": "updateOrganizationID"
+      },
+      {
+        "path": "/view/su/update-name",
+        "method": "post",
+        "operationId": "updateName_1"
+      },
+      {
+        "path": "/view/su/update-email",
+        "method": "post",
+        "operationId": "updateEmail_1"
+      },
+      {
+        "path": "/view/su/update-avatar",
+        "method": "post",
+        "operationId": "updateAvatar_1"
+      },
+      {
+        "path": "/view/su/create-user",
+        "method": "post",
+        "operationId": "createUser"
+      },
+      {
+        "path": "/view/record/sec",
+        "method": "post",
+        "operationId": "getDeviceSecRecord"
+      },
+      {
+        "path": "/view/record/sec/count",
+        "method": "post",
+        "operationId": "getDeviceSecRecordCount"
+      },
+      {
+        "path": "/view/record/operate",
+        "method": "post",
+        "operationId": "getDeviceOperateRecord"
+      },
+      {
+        "path": "/view/record/operate/count",
+        "method": "post",
+        "operationId": "getDeviceOperateRecordCount"
+      },
+      {
+        "path": "/view/record/device",
+        "method": "post",
+        "operationId": "getDeviceRecord"
+      },
+      {
+        "path": "/view/record/device/count",
+        "method": "post",
+        "operationId": "getDeviceRecordCount"
+      },
+      {
+        "path": "/view/organization/update",
+        "method": "post",
+        "operationId": "update"
+      },
+      {
+        "path": "/view/organization/this",
+        "method": "post",
+        "operationId": "getOrganization"
+      },
+      {
+        "path": "/view/organization/list",
+        "method": "post",
+        "operationId": "list"
+      },
+      {
+        "path": "/view/organization/get-name",
+        "method": "post",
+        "operationId": "getName"
+      },
+      {
+        "path": "/view/organization/delete",
+        "method": "post",
+        "operationId": "delete"
+      },
+      {
+        "path": "/view/device/update",
+        "method": "post",
+        "operationId": "update_1"
+      },
+      {
+        "path": "/view/device/this",
+        "method": "post",
+        "operationId": "getDevice"
+      },
+      {
+        "path": "/view/device/send-command",
+        "method": "post",
+        "operationId": "sendCommand"
+      },
+      {
+        "path": "/view/device/list",
+        "method": "post",
+        "operationId": "getDeviceList"
+      },
+      {
+        "path": "/view/device/get",
+        "method": "post",
+        "operationId": "getDevice_1"
+      },
+      {
+        "path": "/view/device/delete",
+        "method": "post",
+        "operationId": "delete_1"
+      },
+      {
+        "path": "/image/upload",
+        "method": "post",
+        "operationId": "uploadImage"
+      },
+      {
+        "path": "/image/update",
+        "method": "post",
+        "operationId": "updateImage"
+      },
+      {
+        "path": "/image/delete",
+        "method": "post",
+        "operationId": "deleteImage"
+      },
+      {
+        "path": "/auth/register",
+        "method": "post",
+        "operationId": "register"
+      },
+      {
+        "path": "/auth/login",
+        "method": "post",
+        "operationId": "doLogin"
+      },
+      {
+        "path": "/view/user/this",
+        "method": "get",
+        "operationId": "getUserInfo_1"
+      },
+      {
+        "path": "/view/user/check-password",
+        "method": "get",
+        "operationId": "checkPassword"
+      },
+      {
+        "path": "/view/su/list",
+        "method": "get",
+        "operationId": "list_1"
+      },
+      {
+        "path": "/view/su/delete-user",
+        "method": "get",
+        "operationId": "delete_2"
+      },
+      {
+        "path": "/image/list",
+        "method": "get",
+        "operationId": "list_2"
+      },
+      {
+        "path": "/image/get",
+        "method": "get",
+        "operationId": "getImage"
+      },
+      {
+        "path": "/auth/publicKey",
+        "method": "get",
+        "operationId": "getPublicKey"
+      },
+      {
+        "path": "/auth/logout",
+        "method": "get",
+        "operationId": "logout"
+      },
+      {
+        "path": "/auth/isLogin",
+        "method": "get",
+        "operationId": "isLogin"
+      },
+      {
+        "path": "/auth/can-register",
+        "method": "get",
+        "operationId": "canRegister"
+      }
+    ],
+    "schemas": [
+      {
+        "name": "BaseResponseString"
+      },
+      {
+        "name": "BaseResponseUserViewData"
+      },
+      {
+        "name": "UserViewData"
+      },
+      {
+        "name": "BaseResponseListUserViewData"
+      },
+      {
+        "name": "BaseResponseInteger"
+      },
+      {
+        "name": "BaseResponseListDeviceSecRecordEntity"
+      },
+      {
+        "name": "DeviceSecRecordEntity"
+      },
+      {
+        "name": "BaseResponseLong"
+      },
+      {
+        "name": "BaseResponseListDeviceOperateEntity"
+      },
+      {
+        "name": "DeviceOperateEntity"
+      },
+      {
+        "name": "BaseResponseListDeviceRecordEntity"
+      },
+      {
+        "name": "DeviceRecordEntity"
+      },
+      {
+        "name": "OrganizationEntity"
+      },
+      {
+        "name": "BaseResponseOrganizationEntity"
+      },
+      {
+        "name": "BaseResponseListOrganizationEntity"
+      },
+      {
+        "name": "DeviceEntity"
+      },
+      {
+        "name": "BaseResponseListDeviceEntity"
+      },
+      {
+        "name": "BaseResponseDeviceEntity"
+      },
+      {
+        "name": "BaseResponseBoolean"
+      },
+      {
+        "name": "BaseResponseListImageProjection"
+      },
+      {
+        "name": "ImageProjection"
+      }
+    ]
+  }
+]
