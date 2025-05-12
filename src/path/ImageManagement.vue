@@ -294,9 +294,10 @@ const getOrLoadImageUrl = async (id: string) => {
                         v-auth-image="row.id"
                         style="max-height: 100px; max-width: 100px; object-fit: cover; cursor: pointer;"
                         :alt="row.name"
+                        @click="viewImageDetail(row)"
                       />
                     </template>
-                    点击查看大图
+                    点击查看详情
                   </NTooltip>
                 </td>
                 <td>

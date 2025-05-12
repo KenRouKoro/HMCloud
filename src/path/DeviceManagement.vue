@@ -528,7 +528,7 @@ onUnmounted(() => {
                   pageSizes: [10, 20, 30, 40],
                   size: isMobile ? 'small' : 'medium'
                 }"
-                :scroll-x="isMobile ? 500 : 'max-content'"
+                :scroll-x="isMobile ? 500 : ''"
                 size="small"
               />
             </div>

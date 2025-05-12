@@ -10,7 +10,8 @@ import {
   NEmpty,
   useMessage,
   NAlert,
-  NDivider
+  NDivider,
+  NFlex
 } from 'naive-ui'
 import { deviceApi } from '../api'
 import { storeToRefs } from 'pinia'
@@ -182,6 +183,20 @@ const sendCommand = async (commandIndex: number) => {
   }
 }
 
+//权限等级文字
+const permissionLevel =(level : number|undefined) => {
+  switch (level) {
+    case 0:
+      return '普通用户';
+    case 2:
+      return '组织管理员';
+    case 4:
+      return '超级管理员';
+    default:
+      return `级别 ${level}`;
+  }
+}
+
 // 直接发送简单命令
 const sendSimpleCommand = async () => {
   if (!props.deviceId || !commandInput.value) {
@@ -259,23 +274,27 @@ watch(() => props.savedParams, (newValue) => {
     <template v-else>
       <!-- 如果有预定义命令，显示命令列表 -->
       <div v-if="deviceCommands && deviceCommands.length > 0" class="command-container">
-        <NSpace vertical size="medium">
+        <n-flex justify="center">
           <template v-for="(command, index) in deviceCommands" :key="index">
             <!-- 只有当用户有权限执行该命令时才显示 -->
             <NCard 
               v-if="canExecuteCommand(command as DeviceCommand)"
               class="command-card"
-              :bordered="false"
+              :bordered="true"
               :segmented="{ content: true }"
-              size="small"
+              size="medium"
+              content-style="padding: 8px;"
+              header-style="padding:16px"
             >
               <template #header>
                 <div class="command-header">
                   <span class="command-title">{{ (command as DeviceCommand).name || `命令${index + 1}` }}</span>
-                  <span v-if="(command as DeviceCommand).permission === 4" class="permission-tag">
-                    (需要超级管理员权限)
-                  </span>
                 </div>
+              </template>
+              <template #header-extra>
+                <span  class="permission-tag">
+                    执行等级-{{permissionLevel((command as DeviceCommand).permission)}}
+                </span>
               </template>
               
               <div class="command-content">
@@ -283,19 +302,18 @@ watch(() => props.savedParams, (newValue) => {
                 <div v-if="(command as DeviceCommand).template" class="command-info-section">
                   <div class="command-template-section">
                     <div class="section-title">命令模板</div>
-                    <NAlert type="info" class="code-block preview-block">
+                    <P  class="code-block preview-block">
                       {{ (command as DeviceCommand).template }}
-                    </NAlert>
+                    </P>
                   </div>
-                
-                  <NDivider class="compact-divider" />
+
                 
                   <!-- 命令预览展示区 -->
                   <div class="command-preview-section">
                     <div class="section-title">预览结果</div>
-                    <NAlert type="info" class="code-block preview-block">
+                    <p  class="code-block preview-block">
                       {{ getPreviewCommand(index) }}
-                    </NAlert>
+                    </p>
                   </div>
                 </div>
                 
@@ -304,7 +322,7 @@ watch(() => props.savedParams, (newValue) => {
                   <div class="section-title" v-if="(command as DeviceCommand).prams && (command as DeviceCommand).prams!.length > 0">
                     参数设置
                   </div>
-                  <NForm :label-placement="formLabelPlacement" label-width="auto" size="small">
+                  <NForm  :label-placement="formLabelPlacement" label-width="auto" size="small">
                     <div class="params-container" v-if="(command as DeviceCommand).prams && (command as DeviceCommand).prams!.length > 0">
                       <NFormItem 
                         v-for="param in (command as DeviceCommand).prams" 
@@ -336,7 +354,7 @@ watch(() => props.savedParams, (newValue) => {
               </div>
             </NCard>
           </template>
-        </NSpace>
+        </n-flex>
         
         <!-- 当没有可执行的命令时显示提示 -->
         <NEmpty 
@@ -367,7 +385,6 @@ watch(() => props.savedParams, (newValue) => {
 <style scoped>
 .command-sender {
   width: 100%;
-  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -382,6 +399,8 @@ watch(() => props.savedParams, (newValue) => {
 .command-card {
   margin-bottom: 0;
   transition: all 0.2s ease-in-out;
+  min-width: 250px;
+  max-width: 350px;
 }
 
 .command-card:hover {
@@ -415,19 +434,18 @@ watch(() => props.savedParams, (newValue) => {
 
 .command-info-section {
   background-color: rgba(0, 0, 0, 0.02);
-  border-radius: 6px;
-  padding: 12px;
+  padding: 4px;
 }
 
 .command-template-section, .command-preview-section, .command-form-section {
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 }
 
 .section-title {
   font-size: 13px;
   font-weight: 500;
   color: #606266;
-  margin-bottom: 8px;
+
 }
 
 .code-block {
@@ -438,14 +456,11 @@ watch(() => props.savedParams, (newValue) => {
   font-size: 13px;
   line-height: 1.4;
   padding: 8px;
+
 }
 
 .preview-block {
   margin: 0;
-}
-
-.compact-divider {
-  margin: 8px 0;
 }
 
 .params-container {
@@ -459,7 +474,6 @@ watch(() => props.savedParams, (newValue) => {
   display: flex;
   justify-content: flex-end;
   gap: 8px;
-  margin-top: 12px;
 }
 
 .action-button {
